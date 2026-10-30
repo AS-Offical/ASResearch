@@ -40,8 +40,11 @@
   align-items: center;
   justify-content: flex-start;
   min-block-size: var(--tap);
+  align-self: stretch;
   flex: 0 1 auto;
+  padding-inline: clamp(0.5rem, 1vw, 1rem);
   color: var(--color-text);
+  border-inline: 1px solid var(--color-border);
 }
 .logo {
   block-size: 1em;
@@ -56,7 +59,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  align-self: stretch;
+  padding-inline: clamp(0.5rem, 1vw, 1rem);
   direction: ltr;
+  border-inline: 1px solid var(--color-border);
 }
 :lang(ar) .site-header__tools { direction: rtl; }
 
@@ -301,7 +307,18 @@ main:has(.home-page) { padding-block: clamp(1.25rem, 2.5vh, 1.75rem); }
   .hero__title, .hero__lede, .hero__kicker { position: relative; z-index: 1; }
 }
 .section { margin-block-start: clamp(0.75rem, 1.75vw, 1.25rem); }
-.home-section { inline-size: min(100% - 2 * var(--gutter), 1280px); }
+.home-section {
+  inline-size: min(100% - 2 * var(--gutter), 1280px);
+  border-block-start: 1px solid var(--color-border);
+  padding-block-start: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+.home-page [aria-labelledby="access"] .vault-form {
+  max-inline-size: none;
+  grid-template-columns: minmax(0, 22rem);
+  border-block-start: 1px solid var(--color-border);
+  padding-block-start: 1rem;
+  margin-block-start: 1rem;
+}
 .section__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-block-end: 0.75rem; }
 .section__head h2 { margin: 0; }
 .section__lede { margin-block: 0.5rem 2rem; }
