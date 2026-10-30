@@ -5,7 +5,7 @@ const ICONS = {
 
 export type PixelIconName = keyof typeof ICONS;
 
-/** Tiny bitmap icons drawn as SVG rects — decorative; the parent control supplies the accessible name. */
+/** Tiny bitmap icons drawn as SVG rectangles; the parent control supplies the accessible name. */
 export function PixelIcon({ name }: { name: PixelIconName }) {
   const rows = ICONS[name];
   return (

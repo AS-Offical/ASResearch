@@ -8,7 +8,7 @@ export function VaultForm() {
   const t = useTranslations("Private");
   const [state, action, pending] = useActionState<VaultState, FormData>(submitVault, {});
   return (
-    <form action={action} className="vault-form" autoComplete="off">
+    <form action={action} className="vault-form" autoComplete="off" aria-busy={pending}>
       <label htmlFor="vault-code" className="vault-form__label">{t("codeLabel")}</label>
       <input id="vault-code" name="code" className="vault-form__input" dir="ltr" inputMode="text" autoCapitalize="characters"
         autoCorrect="off" spellCheck={false} maxLength={16} required aria-describedby={state.error ? "vault-error" : undefined}

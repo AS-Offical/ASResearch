@@ -6,7 +6,7 @@ import { IndexRow } from "@/components/ui/IndexRow";
 export const metadata = { title: "Styleguide", robots: { index: false, follow: false } };
 
 const TOKENS = ["bg", "surface", "border", "border-strong", "text", "muted", "accent", "on-accent"] as const;
-const GLYPHS = "# $ % & * + < = > @ [ ] ^ { | } ~ « » “ ” ‘ ’ … – — × ÷ © ® ™ € £ ¥ § ¶ • ≤ ≥ ≠ ± ° № → ← ↑ ↓ ؛ ، ؟";
+const GLYPHS = "# $ % & * + < = > @ [ ] ^ { | } ~ « » “ ” ‘ ’ … – × ÷ © ® ™ € £ ¥ § ¶ • ≤ ≥ ≠ ± ° № → ← ↑ ↓ ؛ ، ؟";
 
 export default async function Styleguide({ params }: PageProps<"/[locale]/styleguide">) {
   // Verification surface only: hidden in production unless explicitly enabled.
@@ -50,9 +50,9 @@ export default async function Styleguide({ params }: PageProps<"/[locale]/styleg
           <p className="pixel pixel--l" id="px-bold-ar" lang="ar" dir="rtl">مكتبة الأبحاث ١٢٣ 2026</p>
           <p className="pixel pixel--l pixel--regular" id="px-reg-ar" lang="ar" dir="rtl">مكتبة الأبحاث ١٢٣ 2026</p>
           <p className="pixel pixel--m" id="px-mixed" lang="ar" dir="rtl">
-            بحث عن <span className="ltr-run">Next.js</span> و<span className="ltr-run">Supabase</span> — ٣ أقسام
+            بحث عن <span className="ltr-run">Next.js</span> و<span className="ltr-run">Supabase</span>، ٣ أقسام
           </p>
-          <p className="pixel pixel--s" id="px-s">01 / SECTION 02 — الفصل ٠٣</p>
+          <p className="pixel pixel--s" id="px-s">01 / SECTION 02 | الفصل ٠٣</p>
         </div>
         <h3 className="pixel pixel--s">Glyph coverage (Pixel stack)</h3>
         <p className="pixel pixel--m" id="glyphs" dir="ltr">{GLYPHS}</p>

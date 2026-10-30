@@ -1,13 +1,13 @@
 {
   "Meta": {
-    "siteName": "AS Research",
-    "description": "A personal research library — editorial, bilingual, and quiet."
+    "siteName": "AS Researches",
+    "description": "A personal research library, editorial, bilingual, and quiet."
   },
   "A11y": {
     "skipToContent": "Skip to content"
   },
   "Nav": {
-    "home": "AS Research — home",
+    "home": "AS Researches home",
     "primary": "Primary",
     "library": "Library"
   },
@@ -28,7 +28,8 @@
     "accessLead": "Enter it here to open a private research."
   },
   "Footer": {
-    "line": "AS Research — a personal library."
+    "line": "AS Researches, a personal library.",
+    "contact": "For research inquiries or collaboration, contact us at"
   },
   "NotFound": {
     "title": "Page not found",
@@ -44,6 +45,7 @@
   },
   "Article": {
     "readingTime": "{minutes} min read",
+    "home": "Home",
     "backToLibrary": "Back to the library",
     "untranslatedKicker": "Translation",
     "untranslatedTitle": "This research is not available in English",
@@ -62,6 +64,7 @@
     "unavailableTitle": "This link isn’t available",
     "unavailableBody": "It may have expired, been withdrawn, or never existed.",
     "privateBadge": "Private",
+    "home": "Home",
     "bundleTitle": "This research can’t be shown yet",
     "bundleBody": "Interactive research is not enabled on this site yet."
   }

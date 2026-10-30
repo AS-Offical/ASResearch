@@ -52,7 +52,7 @@ export default async function ResearchPage({ params }: PageProps<"/[locale]/libr
             {t("openIn", { language: localeMeta[other].label })}
           </Link>
         </p>
-        <p><Link href="/library">{t("backToLibrary")}</Link></p>
+        <p><Link href="/library" className="control">{t("backToLibrary")}</Link></p>
       </section>
     );
   }
@@ -65,12 +65,13 @@ export default async function ResearchPage({ params }: PageProps<"/[locale]/libr
     datePublished: entry.date,
     inLanguage: locale,
     url: localeUrl(locale, `/library/${slug}`),
-    publisher: { "@type": "Organization", name: "AS Research", url: siteUrl() },
+    publisher: { "@type": "Organization", name: "AS Researches", url: siteUrl() },
   };
 
   return (
     <article className="container container--reading">
       <header className="entry-head">
+        <Link href="/" className="control article-home">{t("home")}</Link>
         <p className="pixel pixel--s entry-head__id">{entry.id}</p>
         <h1 className="entry-head__title">{entry.title}</h1>
         {entry.summary ? <p className="entry-head__summary">{entry.summary}</p> : null}
@@ -83,7 +84,7 @@ export default async function ResearchPage({ params }: PageProps<"/[locale]/libr
       <div className="prose">
         <Mdx source={entry.body} />
       </div>
-      <p className="entry-foot"><Link href="/library">{t("backToLibrary")}</Link></p>
+      <p className="entry-foot"><Link href="/library" className="control">{t("backToLibrary")}</Link></p>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
     </article>
   );

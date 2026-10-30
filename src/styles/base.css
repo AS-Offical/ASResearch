@@ -22,6 +22,7 @@ body {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   overflow-wrap: break-word;
+  transition: background-color 360ms ease, color 360ms ease;
 }
 :lang(ar) body {
   line-height: 1.9;
@@ -42,6 +43,38 @@ a {
 }
 a:hover {
   text-decoration-thickness: 2px;
+}
+
+.page-transition {
+  position: relative;
+  min-inline-size: 0;
+  animation: route-enter 520ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+.page-transition__pixels {
+  position: fixed;
+  z-index: 4;
+  inset-block-start: 72px;
+  inset-inline: 0;
+  block-size: calc(100dvh - 72px);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(8, minmax(0, 1fr));
+  gap: 2px;
+  pointer-events: none;
+}
+.page-transition__pixel {
+  min-inline-size: 0;
+  min-block-size: 0;
+  background: var(--color-bg);
+  transform-origin: center;
+  animation: pixel-reveal 260ms steps(4, end) both;
+}
+@keyframes pixel-reveal {
+  to { opacity: 0; scale: 0.12; }
+}
+@keyframes route-enter {
+  from { opacity: 0; translate: 0 10px; }
+  to { opacity: 1; translate: 0 0; }
 }
 
 :focus-visible {
@@ -102,6 +135,8 @@ h3 {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
