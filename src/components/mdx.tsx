@@ -9,7 +9,7 @@ const components = {
     return <a href={href} {...(external ? { rel: "noopener noreferrer", target: "_blank" } : {})} {...props} />;
   },
   table: (props: ComponentProps<"table">) => (
-    <div className="prose__scroll" tabIndex={0} role="region" aria-label="table">
+    <div className="prose__scroll" tabIndex={0}>
       <table {...props} />
     </div>
   ),
