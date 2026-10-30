@@ -32,14 +32,14 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <h1 className="hero__title pixel pixel--l">{t("title")}</h1>
         <p className="hero__lede">{t("lede")}</p>
       </section>
-      <section className="container section" aria-labelledby="latest">
+      <section className="container section home-section" aria-labelledby="latest">
         <div className="section__head">
           <h2 id="latest" className="pixel pixel--m">{t("latest")}</h2>
           <Link href="/library">{t("all")}</Link>
         </div>
         <EntryList entries={latest} locale={locale} />
       </section>
-      <section className="container section" aria-labelledby="access">
+      <section className="container section home-section" aria-labelledby="access">
         <h2 id="access" className="pixel pixel--m">{t("accessTitle")}</h2>
         <p className="hero__lede">{t("accessLead")}</p>
         <VaultForm />
