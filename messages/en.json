@@ -23,10 +23,9 @@
     "title": "Research, written slowly.",
     "lede": "A small, bilingual library of long-form notes and studies.",
     "latest": "Latest research",
-    "all": "All research"
-           "all": "All research",
-       "accessTitle": "Have an access code?",
-       "accessLead": "Enter it here to open a private research."
+    "all": "All research",
+    "accessTitle": "Have an access code?",
+    "accessLead": "Enter it here to open a private research."
   },
   "Footer": {
     "line": "AS Research — a personal library."
