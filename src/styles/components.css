@@ -27,7 +27,7 @@
 }
 .site-header__inner {
   inline-size: calc(100% - 2 * var(--gutter));
-  max-inline-size: 1600px;
+  max-inline-size: 1280px;
   display: flex;
   align-items: center;
   justify-content: space-between;
