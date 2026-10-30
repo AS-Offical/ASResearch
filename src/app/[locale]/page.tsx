@@ -25,7 +25,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const latest = (await getEntries(locale)).slice(0, 3);
 
   return (
-    <>
+    <div className="home-page">
       <section className="container hero">
         <div className="hero__planet" aria-hidden="true"><PixelEarth /></div>
         <p className="hero__kicker pixel pixel--s">{t("kicker")}</p>
@@ -44,6 +44,6 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <p className="hero__lede">{t("accessLead")}</p>
         <VaultForm />
       </section>
-    </>
+    </div>
   );
 }

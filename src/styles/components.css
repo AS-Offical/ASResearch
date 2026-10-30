@@ -153,27 +153,28 @@ main {
   flex: 1;
   padding-block: clamp(2rem, 5vw, 4.5rem);
 }
+main:has(.home-page) { padding-block: clamp(1.5rem, 3vh, 2rem); }
 
 /* Home */
 .hero {
   position: relative;
   isolation: isolate;
-  inline-size: min(100% - 2 * var(--gutter), 1600px);
-  min-block-size: clamp(23rem, 28vw, 33rem);
+  inline-size: min(100% - 2 * var(--gutter), 1280px);
+  min-block-size: clamp(25rem, 42vh, 30rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-inline-end: clamp(18rem, 30vw, 34rem);
-  padding-block: clamp(1rem, 3vw, 2rem) clamp(2rem, 5vw, 3.5rem);
+  padding-inline-end: clamp(18rem, 32vw, 28rem);
+  padding-block: 1rem 1.5rem;
 }
 .hero__planet {
   position: absolute;
   z-index: -1;
-  inset-inline-end: clamp(1.5rem, 2.5vw, 2.5rem);
+  inset-inline-end: clamp(0.5rem, 1.5vw, 1.5rem);
   inset-block-start: 50%;
   display: grid;
   place-items: center;
-  inline-size: clamp(360px, 37vw, 620px);
+  inline-size: clamp(320px, 34vw, 460px);
   aspect-ratio: 1;
   opacity: 0.98;
   transform: translateY(-50%);
@@ -295,12 +296,12 @@ main {
 @media (max-width: 40rem) {
   .site-header__brand .logo { inline-size: clamp(112px, 32vw, 144px); }
   .site-header__tools { gap: 0.25rem; }
-  .hero { inline-size: min(100% - 2 * var(--gutter), 1600px); padding-inline-end: 0; padding-block-start: 0.5rem; }
+  .hero { inline-size: min(100% - 2 * var(--gutter), 1280px); padding-inline-end: 0; padding-block-start: 0.5rem; }
   .hero__planet { inline-size: 248px; opacity: 0.28; }
   .hero__title, .hero__lede, .hero__kicker { position: relative; z-index: 1; }
 }
-.section { margin-block-start: clamp(2rem, 4vw, 3rem); }
-.home-section { inline-size: min(100% - 2 * var(--gutter), 1600px); }
+.section { margin-block-start: clamp(1.25rem, 2.5vw, 2rem); }
+.home-section { inline-size: min(100% - 2 * var(--gutter), 1280px); }
 .section__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-block-end: 1rem; }
 .section__head h2 { margin: 0; }
 .section__lede { margin-block: 0.5rem 2rem; }
