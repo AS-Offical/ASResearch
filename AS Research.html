@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AS Research</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@400&display=swap">
+<style>
+:root{--bg:#0b0b0d;--panel:#131316;--text:#ece8df;--muted:#8d8a83;--line:#26252a;--gold:#c9a45c;--gold-text:#0b0b0d;
+--serif:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:var(--serif);
+color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3efe6;--panel:#faf7f0;--text:#17150f;--muted:#6f6a5e;--line:#d9d3c4;--gold:#8a6a22;--gold-text:#faf7f0;color-scheme:light}}
+:root[data-theme="light"]{--bg:#f3efe6;--panel:#faf7f0;--text:#17150f;--muted:#6f6a5e;--line:#d9d3c4;--gold:#8a6a22;--gold-text:#faf7f0;color-scheme:light}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+*{box-sizing:border-box}
+.cls-1{fill:currentColor}.cls-2{fill:currentColor;font-family:Montserrat,sans-serif;font-size:12px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;position:relative}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.07;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;position:relative;z-index:2}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:11}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{display:block;color:var(--text);line-height:0}
+.logo svg{height:34px;width:auto;aspect-ratio:1213/331.6}
+nav{display:flex;gap:8px}
+nav a{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding:9px 16px;border:1px solid transparent}
+nav a:hover{color:var(--gold)}
+nav a.on{color:var(--gold);border-color:var(--gold)}
+.label{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;padding:64px 0 56px;position:relative}
+.hero::before{content:"";position:absolute;inset:-20% -30% auto auto;width:70%;height:110%;background:radial-gradient(closest-side,color-mix(in srgb,var(--gold) 20%,transparent),transparent);filter:blur(30px);z-index:-1}
+
+h1{font-weight:500;font-size:clamp(2.2rem,6.4vw,4.6rem);line-height:1.02;margin:18px 0 22px;letter-spacing:-.04em}
+h1 em{color:var(--gold)}
+.hero p{max-width:34em;color:var(--muted);font-size:.92rem;margin:0}
+.btn{display:inline-block;padding:14px 28px;background:var(--gold);color:var(--gold-text);border:0;font:600 .72rem var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.box{background:var(--panel);border:1px solid var(--line);padding:30px}
+.box h2{font-weight:500;font-size:1.5rem;margin:8px 0 6px;letter-spacing:-.03em}
+.box p{color:var(--muted);font-size:.85rem;margin:0 0 6px}
+.box form{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+input{flex:1;min-width:150px;background:transparent;border:0;border-bottom:1px solid var(--gold);color:var(--text);font:500 1.1rem var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:10px 2px;outline:0}
+.msg{min-height:1.4em;font-size:.82rem;margin-top:12px;color:var(--muted)}
+.msg.err{color:#d6675a}
+.hint{font-size:.72rem;color:var(--muted);margin-top:14px}
+.hint code{color:var(--gold)}
+#unlocked{display:grid;gap:14px;padding-bottom:40px}
+.priv{background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--gold);padding:22px 24px;animation:in .5s ease}
+.priv h3{font-weight:500;font-size:1.3rem;margin:6px 0}
+.priv p{margin:0;color:var(--muted);font-size:.92rem}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.strip{border-top:1px solid var(--line);padding:40px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.strip span{color:var(--muted);font-size:.85rem}
+.strip a{color:var(--gold);text-decoration:none;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;padding:64px 0 30px}
+h2.big{font-weight:500;font-size:clamp(1.6rem,4vw,2.5rem);margin:8px 0 0;line-height:1.1;letter-spacing:-.03em}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:none;border:1px solid var(--line);color:var(--muted);padding:7px 14px;font:500 .68rem var(--sans);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+.chip.on{border-color:var(--gold);color:var(--gold)}
+.row{display:grid;grid-template-columns:64px 1fr auto;gap:20px;padding:26px 0;border-bottom:1px solid var(--line);cursor:pointer;align-items:baseline}
+.row:hover .t{color:var(--gold)}
+.no{font-size:1.6rem;color:var(--muted)}
+.t{font-size:1.25rem;line-height:1.25;transition:color .2s}
+.meta{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.sum{grid-column:2/3;max-height:0;overflow:hidden;color:var(--muted);font-size:.9rem;transition:max-height .35s ease;margin:0}
+.row.open .sum{max-height:160px;margin-top:6px}
+.yr{font-size:.8rem;color:var(--muted)}
+#lib{padding-bottom:30px}
+footer{padding:40px 0 50px;border-top:1px solid var(--line);color:var(--muted);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-align:center}
+@media (max-width:820px){.hero{grid-template-columns:1fr;gap:34px;padding-top:44px}}
+@media (max-width:640px){.row{grid-template-columns:44px 1fr}.yr{display:none}.logo svg{height:28px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="as" viewBox="0 0 566.338 319.995"><g> <g> <g> <g> <path d="M48.169 271.649 L43.413 314.1 L47.077 314.1 C47.136 314.1 47.195 314.112 47.253 314.112 C60.687 312.938 71.925 304.541 77.374 292.176 L90.55 260.717 C75.93 268.361 61.333 272.742 48.169 271.649 Z" class="cls-1"/> <path d="M333.957 301.336 L315.615 260.552 L270.264 159.68 L269.078 157.015 L249.772 113.566 L236.961 85.383 L236.961 85.019 L236.596 84.291 L235.54 81.907 L204.75 12.917 C203.282 9.253 199.994 7.058 196.33 7.058 L185.714 7.058 C156.075 7.058 122.032 29.381 110.325 56.108 L0.88 301.336 C-2.044 307.559 2.712 314.511 9.3 314.511 L43.343 314.511 C44.071 314.511 45.175 314.511 45.903 314.135 L46.995 314.135 C47.077 314.124 47.171 314.124 47.253 314.112 C47.195 314.112 47.136 314.1 47.077 314.1 L43.413 314.1 L48.169 271.649 C61.333 272.742 75.93 268.361 90.55 260.717 L90.55 260.705 L166.691 76.963 L200.722 158.952 L200.745 159.023 L224.513 216.786 L224.525 216.822 L238.417 250.477 L254.481 289.393 L262.584 309.015 C264.04 312.304 267.703 314.511 271.367 314.511 L325.173 314.511 C327.734 314.511 329.929 313.407 331.761 311.939 C332.125 311.575 332.489 311.211 332.489 310.847 C333.217 310.002 333.781 309.063 334.157 308.064 C334.932 306.056 334.932 303.778 333.957 301.336 Z M219.029 142.97 L219.029 142.853 C219.053 142.712 219.064 142.559 219.088 142.418 C219.064 142.606 219.041 142.794 219.029 142.97 Z" class="cls-1"/> </g> <g> <path d="M219.088 142.418 C219.064 142.606 219.041 142.794 219.029 142.97 L219.029 142.853 C219.053 142.712 219.064 142.559 219.088 142.418 Z" class="cls-1"/> <path d="M224.525 216.822 C221.248 220.086 217.984 222.987 214.708 226.263 C192.384 247.494 168.593 267.986 141.502 284.825 C114.834 300.537 84.866 316.249 47.253 314.112 C47.195 314.112 47.136 314.1 47.077 314.1 L43.413 314.1 L48.169 271.649 C61.333 272.742 75.93 268.361 90.55 260.717 L90.55 260.705 C90.573 260.693 90.608 260.682 90.632 260.67 C99.052 256.642 107.471 251.51 115.527 245.662 C137.486 229.927 157.978 210.164 177.013 189.296 C185.409 179.444 194.522 170.684 200.745 159.023 L224.513 216.786 Z" class="cls-1"/> </g> </g> <g> <path d="M459.88 184.54 C453.598 174.5 445.378 166.55 435.197 160.69 C425.016 154.843 413.719 150.098 401.307 146.47 C388.906 142.853 376.423 139.565 363.87 136.641 C351.329 133.717 339.962 130.722 329.78 127.646 C324.52 126.061 319.775 124.158 315.56 121.939 C312.413 120.295 309.571 118.463 306.999 116.443 C306.342 115.95 305.707 115.421 305.097 114.893 C298.826 109.456 295.691 102.269 295.691 93.345 C295.691 85.817 297.84 79.124 302.173 73.264 C306.494 67.405 313.329 62.672 322.664 59.044 C332.012 55.427 344.213 53.607 359.267 53.607 C372.09 53.607 385.477 55.485 399.428 59.255 C402.622 60.124 405.816 61.099 408.963 62.167 C408.975 62.179 408.975 62.179 408.986 62.179 C414.388 64.023 419.731 66.172 424.992 68.649 C425.028 68.661 425.051 68.673 425.074 68.684 C430.112 71.045 435.091 73.687 440.012 76.611 L440.575 75.225 L443.088 69.025 L457.156 34.36 C444.333 25.999 429.267 19.587 411.981 15.125 C394.684 10.663 377.257 8.431 359.69 8.431 C357.095 8.431 354.546 8.467 352.045 8.549 L352.033 8.549 C350.26 8.596 348.522 8.666 346.784 8.76 C325.729 9.852 307.939 13.716 293.389 20.351 C275.951 28.301 262.987 38.904 254.485 52.139 C248.273 61.803 244.327 72.184 242.66 83.257 L243.716 85.641 L244.08 86.369 L244.08 86.733 L256.892 114.917 L276.198 158.365 C276.209 158.377 276.221 158.377 276.233 158.389 C281.353 161.407 286.754 164.143 292.45 166.597 C294.023 167.278 295.608 167.936 297.229 168.57 C301.163 170.108 305.226 171.529 309.418 172.821 C309.653 172.891 309.888 172.962 310.123 173.032 C322.523 176.802 334.936 180.078 347.348 182.861 C359.76 185.656 371.045 188.65 381.238 191.856 C391.407 195.074 399.71 199.383 406.121 204.832 C412.533 210.269 415.739 217.444 415.739 226.369 C415.739 233.626 413.508 240.108 409.057 245.827 C405.205 250.747 399.522 254.775 391.971 257.934 C390.738 258.45 389.458 258.944 388.131 259.413 C387.227 259.73 386.288 260.036 385.325 260.318 C376.247 263.065 364.774 264.439 350.906 264.439 C345.95 264.439 341.018 264.216 336.133 263.747 C331.636 263.335 327.174 262.713 322.735 261.903 L341.077 302.686 C342.052 305.129 342.052 307.407 341.277 309.415 C344.471 309.544 347.677 309.614 350.906 309.614 L351.798 309.614 C378.173 309.52 400.05 305.551 417.418 297.695 C434.986 289.745 448.02 279.153 456.534 265.895 C462.44 256.701 466.304 246.919 468.101 236.561 C468.746 232.827 469.134 229.023 469.251 225.136 C469.275 224.302 469.287 223.445 469.287 222.599 C469.287 207.275 466.151 194.58 459.88 184.54 Z" class="cls-1"/> </g> </g> </g></symbol><symbol id="aslogo" viewBox="0 0 1213.477 331.641"><g> <g> <path d="M110.325 49.05 C122.032 22.323 156.075 0 185.714 0 L196.33 0 C199.994 0 203.282 2.195 204.75 5.859 L235.54 74.849 L236.596 77.233 L236.961 77.961 L236.961 78.325 L249.772 106.508 L269.078 149.957 L270.264 152.622 L315.615 253.494 L333.957 294.278 C334.932 296.72 334.932 298.998 334.157 301.006 C333.781 302.005 333.217 302.944 332.489 303.789 C332.489 304.153 332.125 304.517 331.761 304.881 C329.929 306.349 327.734 307.453 325.173 307.453 L271.367 307.453 C267.703 307.453 264.04 305.246 262.584 301.957 L254.481 282.335 L238.417 243.419 L224.525 209.764 C221.248 213.028 217.984 215.929 214.708 219.205 C192.384 240.436 168.593 260.928 141.502 277.767 C114.834 293.479 84.866 309.191 47.253 307.054 C47.171 307.066 47.077 307.066 46.995 307.077 L45.903 307.077 C45.175 307.453 44.071 307.453 43.343 307.453 L9.3 307.453 C2.712 307.453 -2.044 300.501 0.88 294.278 Z M166.691 69.905 L90.55 253.647 C90.573 253.635 90.608 253.624 90.632 253.612 C99.052 249.584 107.471 244.452 115.527 238.604 C137.486 222.869 157.978 203.106 177.013 182.238 C185.409 172.386 194.522 163.626 200.745 151.965 L200.722 151.894 Z" class="cls-1"/> <path d="M459.88 177.482 C453.598 167.442 445.378 159.492 435.197 153.632 C425.016 147.785 413.719 143.04 401.307 139.412 C388.906 135.795 376.423 132.507 363.87 129.583 C351.329 126.659 339.962 123.664 329.78 120.588 C324.52 119.003 319.775 117.1 315.56 114.881 C312.413 113.237 309.571 111.405 306.999 109.385 C306.342 108.892 305.707 108.363 305.097 107.835 C298.826 102.398 295.691 95.211 295.691 86.287 C295.691 78.759 297.84 72.066 302.173 66.206 C306.494 60.347 313.329 55.614 322.664 51.986 C332.012 48.369 344.213 46.549 359.267 46.549 C372.09 46.549 385.477 48.427 399.428 52.197 C402.622 53.066 405.816 54.041 408.963 55.109 C408.975 55.121 408.975 55.121 408.986 55.121 C414.388 56.965 419.731 59.114 424.992 61.591 C425.028 61.603 425.051 61.615 425.074 61.626 C430.112 63.987 435.091 66.629 440.012 69.553 L440.575 68.167 L443.088 61.967 L457.156 27.302 C444.333 18.941 429.267 12.529 411.981 8.067 C394.684 3.605 377.257 1.373 359.69 1.373 C357.095 1.373 354.546 1.409 352.045 1.491 L352.033 1.491 C350.26 1.538 348.522 1.608 346.784 1.702 C325.729 2.794 307.939 6.658 293.389 13.293 C275.951 21.243 262.987 31.846 254.485 45.081 C248.273 54.745 244.327 65.126 242.66 76.199 L243.716 78.583 L244.08 79.311 L244.08 79.675 L256.892 107.859 L276.198 151.307 C276.209 151.319 276.221 151.319 276.233 151.331 C281.353 154.349 286.754 157.085 292.45 159.539 C294.023 160.22 295.608 160.878 297.229 161.512 C301.163 163.05 305.226 164.471 309.418 165.763 C309.653 165.833 309.888 165.904 310.123 165.974 C322.523 169.744 334.936 173.02 347.348 175.803 C359.76 178.598 371.045 181.592 381.238 184.798 C391.407 188.016 399.71 192.325 406.121 197.774 C412.533 203.211 415.739 210.386 415.739 219.311 C415.739 226.568 413.508 233.05 409.057 238.769 C405.205 243.689 399.522 247.717 391.971 250.876 C390.738 251.392 389.458 251.886 388.131 252.355 C387.227 252.672 386.288 252.978 385.325 253.26 C376.247 256.007 364.774 257.381 350.906 257.381 C345.95 257.381 341.018 257.158 336.133 256.689 C331.636 256.277 327.174 255.655 322.735 254.845 L341.077 295.628 C342.052 298.071 342.052 300.349 341.277 302.357 C344.471 302.486 347.677 302.556 350.906 302.556 L351.798 302.556 C378.173 302.462 400.05 298.493 417.418 290.637 C434.986 282.687 448.02 272.095 456.534 258.837 C462.44 249.643 466.304 239.861 468.101 229.503 C468.746 225.769 469.134 221.965 469.251 218.078 C469.275 217.244 469.287 216.387 469.287 215.541 C469.287 200.217 466.151 187.522 459.88 177.482 Z" class="cls-1"/> <text transform="matrix(10.664 0 0 10.664 483.062 299.522)" x="0" y="0" xml:space="preserve" class="cls-2"><tspan x="0" y="0">Researches</tspan></text> </g> </g></symbol></defs></svg>
+<header><div class="wrap">
+<a class="logo" href="#vault" aria-label="AS Research"><svg viewBox="0 0 1213.477 331.641"><use href="#aslogo"/></svg></a>
+<nav><a href="#vault" id="n-vault">Vault</a><a href="#library" id="n-library">Library</a></nav>
+</div></header>
+
+<main class="wrap">
+<div id="view-vault">
+<div class="hero">
+
+<div>
+<span class="label">Research, minus the boring parts</span>
+<h1>Got a code?<br>Let’s <em>open it.</em></h1>
+<p>Research made just for you stays between us. Pop in the code we sent you and it’s all yours.</p>
+</div>
+<div class="box">
+<span class="label">Private Vault</span>
+<h2>Your custom research</h2>
+<p>Type your code below.</p>
+<form id="f"><input id="code" placeholder="ASR-000" autocomplete="off" spellcheck="false" aria-label="Access code"><button class="btn">Unlock</button></form>
+<div class="msg" id="msg"></div>
+<div class="hint">Wanna try it? Use <code>ASR-101</code> · <code>ASR-202</code> · <code>ASR-303</code></div>
+</div>
+</div>
+<div id="unlocked"></div>
+<div class="strip"><span>Just here to browse?</span><a href="#library">Check out the library →</a></div>
+</div>
+
+<div id="view-library" hidden>
+<div class="head"><div><span class="label">The Library</span><h2 class="big">Stuff we’ve published</h2></div>
+<div class="filters" id="filters"></div></div>
+<div id="lib"></div>
+<div class="strip"><span>Got a code?</span><a href="#vault">Head to the vault →</a></div>
+</div>
+</main>
+<footer>© 2026 AS Research · Demo</footer>
+
+<script>
+var PUB=[
+["The Creator Workflow Report","Media","2026","18 min","We tracked 120 video teams to see where the hours really go. Spoiler: handoffs are sneaky time-eaters."],
+["AI in Post-Production: A Field Study","AI","2026","24 min","Six months of testing AI tools on editing, color and sound. What actually saved time, what made more work, and where humans still win."],
+["Gamified Contracts: Engagement Models","Systems","2026","15 min","Does adding game-style progress make people finish long projects? We checked."],
+["The Attention Ledger","Media","2025","20 min","Why people stick around (or bail) on short and long videos, second by second."],
+["Pipelines as Products","Systems","2025","12 min","What happens when you treat your internal tools like real products, with users and roadmaps."],
+["Synthetic Voices, Real Trust","AI","2025","16 min","How listeners feel about AI voices, and how to be upfront about it without losing them."]
+];
+var VAULT={
+"ASR-101":{t:"Brand Audience Study",c:"Client file 101",d:"Who your audience really is, where to reach them, and a 90-day content plan to go with it."},
+"ASR-202":{t:"Production Cost Audit",c:"Client file 202",d:"We went through your pipeline line by line and picked three things worth automating, ranked by payoff."},
+"ASR-303":{t:"Platform Feasibility Memo",c:"Client file 303",d:"Can a gamified production-management platform actually work? Here’s the tech and market take."}
+};
+var cats=["All"],cur="All",list=document.getElementById("lib"),fl=document.getElementById("filters");
+PUB.forEach(function(p){if(cats.indexOf(p[1])<0)cats.push(p[1])});
+function render(){
+fl.innerHTML="";
+cats.forEach(function(c){var b=document.createElement("button");b.className="chip"+(c===cur?" on":"");b.textContent=c;b.onclick=function(){cur=c;render()};fl.appendChild(b)});
+list.innerHTML="";var n=0;
+PUB.forEach(function(p){
+if(cur!=="All"&&p[1]!==cur)return;n++;
+var r=document.createElement("div");r.className="row";
+r.innerHTML='<div class="no">'+(n<10?"0":"")+n+'</div><div><div class="t"></div><div class="meta"></div></div><div class="yr"></div><p class="sum"></p>';
+r.querySelector(".t").textContent=p[0];
+r.querySelector(".meta").textContent=p[1]+" · "+p[3]+" read";
+r.querySelector(".yr").textContent=p[2];
+r.querySelector(".sum").textContent=p[4];
+r.onclick=function(){r.classList.toggle("open")};
+list.appendChild(r)})}
+render();
+function route(){
+var v=location.hash==="#library"?"library":"vault";
+document.getElementById("view-vault").hidden=v!=="vault";
+document.getElementById("view-library").hidden=v!=="library";
+document.getElementById("n-vault").className=v==="vault"?"on":"";
+document.getElementById("n-library").className=v==="library"?"on":"";
+window.scrollTo(0,0)}
+window.addEventListener("hashchange",route);route();
+var opened={};
+document.getElementById("f").onsubmit=function(e){
+e.preventDefault();
+var inp=document.getElementById("code"),m=document.getElementById("msg"),k=inp.value.trim().toUpperCase();
+var v=VAULT[k];
+if(!v){m.className="msg err";m.textContent="Hmm, that code doesn’t work. Mind double-checking it?";return}
+if(opened[k]){m.className="msg";m.textContent="That one’s already open below.";return}
+opened[k]=1;m.className="msg";m.textContent="You’re in!";inp.value="";
+var d=document.createElement("div");d.className="priv";
+d.innerHTML='<span class="label"></span><h3></h3><p></p>';
+d.querySelector(".label").textContent="Just for you · "+v.c;
+d.querySelector("h3").textContent=v.t;
+d.querySelector("p").textContent=v.d;
+document.getElementById("unlocked").appendChild(d)};
+</script>
+</body>
+</html>
