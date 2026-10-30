@@ -1,0 +1,34 @@
+{
+  "Meta": {
+    "siteName": "AS Research",
+    "description": "A personal research library — editorial, bilingual, and quiet."
+  },
+  "A11y": {
+    "skipToContent": "Skip to content"
+  },
+  "Nav": {
+    "home": "AS Research — home",
+    "primary": "Primary",
+    "library": "Library"
+  },
+  "Theme": {
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme"
+  },
+  "Locale": {
+    "switchTo": "Switch language to Arabic"
+  },
+  "Home": {
+    "kicker": "Personal research library",
+    "title": "Research, written slowly.",
+    "lede": "A small, bilingual library of long-form notes and studies. The foundation is in place; the library opens soon."
+  },
+  "Footer": {
+    "line": "AS Research — a personal library."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "body": "That page does not exist or has moved.",
+    "home": "Back to home"
+  }
+}

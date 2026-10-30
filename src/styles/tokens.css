@@ -1,0 +1,68 @@
+/* Design tokens — source: AS Research visual identity guide.
+   Dark is the base; light applies via explicit choice or system preference on first visit.
+   An inline script (see ThemeScript) sets html[data-theme] before paint. */
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #121413;
+  --color-surface: #1a1d1b;
+  --color-border: #2c312e;
+  --color-border-strong: #6b726d; /* UI boundaries (inputs/buttons): >=3:1, extension of the guide */
+  --color-text: #d9dcd8;
+  --color-muted: #9aa09b;
+  --color-accent: #3ddc84;
+  --color-on-accent: #121413;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --color-bg: #f2f3f0;
+    --color-surface: #ffffff;
+    --color-border: #d5d8d3;
+    --color-border-strong: #7a817c;
+    --color-text: #1a1d1b;
+    --color-muted: #5b625d;
+    --color-accent: #0f6b3e;
+    --color-on-accent: #ffffff;
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #f2f3f0;
+  --color-surface: #ffffff;
+  --color-border: #d5d8d3;
+  --color-border-strong: #7a817c;
+  --color-text: #1a1d1b;
+  --color-muted: #5b625d;
+  --color-accent: #0f6b3e;
+  --color-on-accent: #ffffff;
+}
+
+:root {
+  /* layout */
+  --measure: 680px; /* reading column */
+  --wide: 1040px;
+  --gutter: clamp(16px, 5vw, 40px);
+  --tap: 44px;
+
+  /* type scale (body) */
+  --text-sm: 0.875rem;
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+
+  /* pixel scale — Pixel AE draws on a 100/1000 em grid, so multiples of 10px stay crisp.
+     Regular weight is only allowed from 24px up (guide). */
+  --pixel-s: 20px; /* ids, section numbers (Bold) */
+  --pixel-m: 30px; /* subheads (Bold) */
+  --pixel-l: clamp(40px, 5vw + 20px, 70px); /* display (Regular or Bold) */
+
+  --font-pixel: "Pixel AE", "Pixelify Fallback", var(--font-body);
+  --font-body: "Montserrat", "Cairo", system-ui, sans-serif;
+}
+
+:lang(ar) {
+  --font-body: "Cairo", "Montserrat", system-ui, sans-serif;
+}
