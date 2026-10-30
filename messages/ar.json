@@ -1,13 +1,13 @@
 {
   "Meta": {
-    "siteName": "AS Research",
-    "description": "مكتبة أبحاث شخصية — تحريرية، ثنائية اللغة، وهادئة."
+    "siteName": "AS Researches",
+    "description": "مكتبة أبحاث شخصية، تحريرية، ثنائية اللغة، وهادئة."
   },
   "A11y": {
     "skipToContent": "تخطَّ إلى المحتوى"
   },
   "Nav": {
-    "home": "AS Research — الرئيسية",
+    "home": "AS Researches، الرئيسية",
     "primary": "التنقل الرئيسي",
     "library": "المكتبة"
   },
@@ -28,7 +28,8 @@
     "accessLead": "دخل الكود هنا."
   },
   "Footer": {
-    "line": "AS Research — مكتبة شخصية."
+    "line": "AS Researches - مكتبة أبحاث شخصية.",
+    "contact": "للاستفسارات البحثية أو التعاون، يسعدنا تواصلكم عبر"
   },
   "NotFound": {
     "title": "الصفحة غير موجودة",
@@ -44,6 +45,7 @@
   },
   "Article": {
     "readingTime": "{minutes, plural, one {دقيقة قراءة} two {دقيقتا قراءة} few {# دقائق قراءة} other {# دقيقة قراءة}}",
+    "home": "الرئيسية",
     "backToLibrary": "العودة إلى المكتبة",
     "untranslatedKicker": "الترجمة",
     "untranslatedTitle": "هذا البحث غير متاح بالعربية",
@@ -53,15 +55,16 @@
   "Private": {
     "kicker": "خاص",
     "vaultTitle": "الخزنة",
-    "vaultLead": "أدخل رمز الوصول لفتح بحث خاص.",
-    "codeLabel": "رمز الوصول",
+    "vaultLead": "أدخل الكود للوصول للبحث الخاص.",
+    "codeLabel": "مكان الكود",
     "submit": "فتح",
-    "invalid": "هذا الرمز غير صحيح.",
+    "invalid": "الكود غير صحيح.",
     "limitedTitle": "من فضلك انتظر قليلاً",
     "limitedBody": "محاولات كثيرة. حاول مجدداً بعد دقائق.",
     "unavailableTitle": "هذا الرابط غير متاح",
     "unavailableBody": "قد يكون منتهياً أو مسحوباً أو غير موجود.",
     "privateBadge": "خاص",
+    "home": "الرئيسية",
     "bundleTitle": "لا يمكن عرض هذا البحث بعد",
     "bundleBody": "الأبحاث التفاعلية غير مفعّلة في الموقع بعد."
   }

@@ -23,18 +23,24 @@
 /* Header */
 .site-header {
   border-block-end: 1px solid var(--color-border);
+  transition: background-color 360ms ease, border-color 360ms ease;
 }
 .site-header__inner {
+  inline-size: calc(100% - 2 * var(--gutter));
+  max-inline-size: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   min-block-size: 72px;
+  direction: ltr;
 }
 .site-header__brand {
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
   min-block-size: var(--tap);
+  flex: 0 1 auto;
   color: var(--color-text);
 }
 .logo {
@@ -43,13 +49,16 @@
   fill: currentColor;
 }
 .site-header__brand .logo {
-  font-size: 40px;
+  inline-size: clamp(176px, 23vw, 240px);
+  block-size: auto;
 }
 .site-header__tools {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  direction: ltr;
 }
+:lang(ar) .site-header__tools { direction: rtl; }
 
 /* Controls */
 .control {
@@ -69,10 +78,17 @@
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 .control:hover {
   background: var(--color-surface);
   border-color: var(--color-text);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--color-accent) 22%, transparent);
+}
+.control:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: none;
 }
 .control[aria-disabled="true"],
 .control:disabled {
@@ -118,6 +134,19 @@
   padding-block: 1.5rem;
   color: var(--color-muted);
   font-size: var(--text-sm);
+  transition: background-color 360ms ease, color 360ms ease, border-color 360ms ease;
+}
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+.site-footer__contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 main {
@@ -126,10 +155,57 @@ main {
 }
 
 /* Home */
+.hero {
+  position: relative;
+  isolation: isolate;
+  inline-size: min(100% - 2 * var(--gutter), 1600px);
+  min-block-size: clamp(25rem, 34vw, 36rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline-end: clamp(22rem, 36vw, 40rem);
+  padding-block: clamp(1rem, 3vw, 2rem) clamp(2rem, 5vw, 3.5rem);
+}
+.hero__planet {
+  position: absolute;
+  z-index: -1;
+  inset-inline-end: clamp(-2rem, -1vw, -0.5rem);
+  inset-block-start: 50%;
+  display: grid;
+  place-items: center;
+  inline-size: clamp(360px, 38vw, 680px);
+  aspect-ratio: 1;
+  opacity: 0.98;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.pixel-earth {
+  position: relative;
+  inline-size: 100%;
+  aspect-ratio: 1;
+  shape-rendering: crispEdges;
+  animation: planet-drift 8s ease-in-out infinite;
+}
+.pixel-earth__star {
+  fill: #b8dfff;
+  opacity: 0.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: star-flicker 2.8s steps(3, end) infinite;
+}
+@keyframes star-flicker {
+  0%, 100% { opacity: 0.35; scale: 0.75; }
+  50% { opacity: 1; scale: 1.35; }
+}
+@keyframes planet-drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
 .hero__kicker {
   color: var(--color-accent);
   margin-block-end: 1rem;
 }
+:lang(ar) .hero__kicker { translate: 0 -0.65rem; }
 .hero__title {
   margin-block-end: 1.5rem;
 }
@@ -157,7 +233,9 @@ main {
   padding-block: 1.25rem;
   color: var(--color-text);
   text-decoration: none;
+  transition: transform 180ms ease, color 180ms ease;
 }
+.index__link:hover { transform: translateY(-2px); }
 .index__link:hover .index__title {
   color: var(--color-accent);
   text-decoration: underline;
@@ -205,16 +283,58 @@ main {
   min-block-size: var(--tap);
   padding-inline: 0.5rem;
   color: var(--color-text);
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+.site-header__link:hover { color: var(--color-accent); transform: translateY(-2px); }
+@media (max-width: 52rem) {
+  .hero { min-block-size: 27rem; padding-inline-end: 0; }
+  .hero__planet { inset-inline-end: 0; inline-size: 280px; opacity: 0.24; }
+  .hero__title, .hero__lede, .hero__kicker { position: relative; z-index: 1; }
 }
 @media (max-width: 40rem) {
-  .site-header__brand .logo { font-size: 32px; }
+  .site-header__brand .logo { inline-size: clamp(132px, 39vw, 176px); }
   .site-header__tools { gap: 0.25rem; }
+  .hero { inline-size: min(100% - 2 * var(--gutter), 1600px); min-block-size: 27rem; padding-inline-end: 0; padding-block-start: 0.5rem; }
+  .hero__planet { inline-size: 248px; opacity: 0.22; }
+  .hero__title, .hero__lede, .hero__kicker { position: relative; z-index: 1; }
 }
 .section { margin-block-start: clamp(3rem, 8vw, 5rem); }
 .section__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-block-end: 1rem; }
 .section__head h2 { margin: 0; }
 .section__lede { margin-block: 0.5rem 2rem; }
 .badge { border: 1px solid var(--color-border-strong); padding-inline: 0.4rem; font-size: 0.75rem; line-height: 1.6; }
+
+/* Pixel-build fallback shown while a route's server content is rendering. */
+.pixel-loading {
+  min-block-size: min(62dvh, 42rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  color: var(--color-accent);
+}
+.pixel-loading__frame {
+  inline-size: clamp(112px, 18vw, 160px);
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  padding: 4px;
+}
+.pixel-loading__frame span {
+  background: var(--color-accent);
+  opacity: 0.12;
+  animation: pixel-build 1.08s steps(2, end) infinite;
+}
+.pixel-loading__frame span:nth-child(3n) { background: #4d9ed8; }
+.pixel-loading__frame span:nth-child(4n) { background: var(--color-text); }
+.pixel-loading__label { letter-spacing: 0.08em; }
+@keyframes pixel-build {
+  0%, 100% { opacity: 0.12; transform: scale(0.72); }
+  48% { opacity: 0.95; transform: scale(1); }
+}
 
 /* Article */
 .entry-head { margin-block-end: 2.5rem; }
@@ -259,3 +379,7 @@ main {
 .prose th { background: var(--color-surface); }
 .prose hr { border: 0; border-block-start: 1px solid var(--color-border); }
 .section__head a { white-space: nowrap; }
+.article-home { margin-block-end: 1.75rem; }
+.control, .site-header__link, .index__link, .vault-form__input, .vault-form__button {
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}

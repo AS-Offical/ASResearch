@@ -1,6 +1,7 @@
 "use client";
 
 import { PixelIcon } from "./PixelIcon";
+import type { MouseEvent } from "react";
 
 export const THEME_KEY = "as-theme";
 
@@ -11,12 +12,18 @@ type Props = { toLight: string; toDark: string };
  * so server HTML is correct before hydration. The click handler reads the live state.
  */
 export function ThemeToggle({ toLight, toDark }: Props) {
-  function toggle() {
+  function toggle(event: MouseEvent<HTMLButtonElement>) {
     const root = document.documentElement;
     const current =
       root.dataset.theme ?? (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
     const next = current === "light" ? "dark" : "light";
     root.dataset.theme = next;
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      event.currentTarget.animate(
+        [{ transform: "rotate(0deg) scale(1)" }, { transform: "rotate(90deg) scale(1.12)" }, { transform: "rotate(180deg) scale(1)" }],
+        { duration: 480, easing: "cubic-bezier(.2,.8,.2,1)" },
+      );
+    }
     try {
       localStorage.setItem(THEME_KEY, next);
     } catch {

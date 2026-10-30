@@ -6,6 +6,7 @@ import { preload } from "react-dom";
 import { localeMeta, routing } from "@/i18n/routing";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { PageTransition } from "@/components/layout/PageTransition";
 import { ThemeScript } from "@/components/layout/ThemeScript";
 import "@/styles/index.css";
 
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   if (!hasLocale(routing.locales, locale)) return {};
   const t = await getTranslations({ locale, namespace: "Meta" });
   return {
-    title: { default: t("siteName"), template: `%s — ${t("siteName")}` },
+    title: { default: t("siteName"), template: `%s | ${t("siteName")}` },
     description: t("description"),
   };
 }
@@ -46,7 +47,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
             {t("skipToContent")}
           </a>
           <SiteHeader />
-          <main id="main">{children}</main>
+          <main id="main"><PageTransition>{children}</PageTransition></main>
           <SiteFooter />
         </NextIntlClientProvider>
       </body>

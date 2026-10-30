@@ -8,6 +8,7 @@ import { getEntries } from "@/lib/research";
 import { alternates } from "@/lib/seo";
 import { EntryList } from "@/components/ui/EntryList";
 import { VaultForm } from "@/app/(private)/vault/VaultForm";
+import { PixelEarth } from "@/components/ui/PixelEarth";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
@@ -26,6 +27,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   return (
     <>
       <section className="container hero">
+        <div className="hero__planet" aria-hidden="true"><PixelEarth /></div>
         <p className="hero__kicker pixel pixel--s">{t("kicker")}</p>
         <h1 className="hero__title pixel pixel--l">{t("title")}</h1>
         <p className="hero__lede">{t("lede")}</p>

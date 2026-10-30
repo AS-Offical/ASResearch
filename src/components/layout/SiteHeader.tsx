@@ -4,7 +4,7 @@ import { Logo } from "@/components/brand/Logo";
 import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
-export function SiteHeader() {
+export function SiteHeader({ localeSwitchHref }: { localeSwitchHref?: string } = {}) {
   const t = useTranslations();
   return (
     <header className="site-header">
@@ -14,7 +14,7 @@ export function SiteHeader() {
         </Link>
         <nav className="site-header__tools" aria-label={t("Nav.primary")}>
           <Link href="/library" className="site-header__link">{t("Nav.library")}</Link>
-          <LocaleSwitcher label={t("Locale.switchTo")} />
+          <LocaleSwitcher label={t("Locale.switchTo")} href={localeSwitchHref} />
           <ThemeToggle toLight={t("Theme.toLight")} toDark={t("Theme.toDark")} />
         </nav>
       </div>
