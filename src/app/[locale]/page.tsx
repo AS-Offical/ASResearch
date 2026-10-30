@@ -37,11 +37,11 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         </div>
         <EntryList entries={latest} locale={locale} />
       </section>
-               <section className="container section" aria-labelledby="access">
-           <h2 id="access" className="pixel pixel--m">{t("accessTitle")}</h2>
-           <p className="hero__lede">{t("accessLead")}</p>
-           <VaultForm />
-         </section>
+      <section className="container section" aria-labelledby="access">
+        <h2 id="access" className="pixel pixel--m">{t("accessTitle")}</h2>
+        <p className="hero__lede">{t("accessLead")}</p>
+        <VaultForm />
+      </section>
     </>
   );
 }

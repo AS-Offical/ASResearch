@@ -2,6 +2,7 @@
   "name": "as-research",
   "version": "0.1.0",
   "description": "AS Research \u2014 personal bilingual research library",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
