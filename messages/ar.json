@@ -1,0 +1,51 @@
+{
+  "Meta": {
+    "siteName": "AS Research",
+    "description": "مكتبة أبحاث شخصية — تحريرية، ثنائية اللغة، وهادئة."
+  },
+  "A11y": {
+    "skipToContent": "تخطَّ إلى المحتوى"
+  },
+  "Nav": {
+    "home": "AS Research — الرئيسية",
+    "primary": "التنقل الرئيسي",
+    "library": "المكتبة"
+  },
+  "Theme": {
+    "toLight": "التبديل إلى الثيم الفاتح",
+    "toDark": "التبديل إلى الثيم الغامق"
+  },
+  "Locale": {
+    "switchTo": "Switch language to English"
+  },
+  "Home": {
+    "kicker": "مكتبة أبحاث شخصية",
+    "title": "أبحاث تُكتب على مهل.",
+    "lede": "مكتبة صغيرة ثنائية اللغة للملاحظات والدراسات الطويلة.",
+    "latest": "أحدث الأبحاث",
+    "all": "كل الأبحاث"
+  },
+  "Footer": {
+    "line": "AS Research — مكتبة شخصية."
+  },
+  "NotFound": {
+    "title": "الصفحة غير موجودة",
+    "body": "هذه الصفحة غير موجودة أو تم نقلها.",
+    "home": "العودة إلى الرئيسية"
+  },
+  "Library": {
+    "title": "المكتبة",
+    "description": "كل الأبحاث العامة، من الأحدث إلى الأقدم.",
+    "count": "{count, plural, =0 {لا توجد أبحاث} one {بحث واحد} two {بحثان} few {# أبحاث} many {# بحثاً} other {# بحث}}",
+    "empty": "لم يُنشر أي بحث بعد.",
+    "draft": "مسودة"
+  },
+  "Article": {
+    "readingTime": "{minutes, plural, one {دقيقة قراءة} two {دقيقتا قراءة} few {# دقائق قراءة} other {# دقيقة قراءة}}",
+    "backToLibrary": "العودة إلى المكتبة",
+    "untranslatedKicker": "الترجمة",
+    "untranslatedTitle": "هذا البحث غير متاح بالعربية",
+    "untranslatedBody": "نُشر هذا البحث بلغة أخرى فقط.",
+    "openIn": "اقرأه بـ{language}"
+  }
+}

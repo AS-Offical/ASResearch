@@ -1,0 +1,51 @@
+{
+  "Meta": {
+    "siteName": "AS Research",
+    "description": "A personal research library — editorial, bilingual, and quiet."
+  },
+  "A11y": {
+    "skipToContent": "Skip to content"
+  },
+  "Nav": {
+    "home": "AS Research — home",
+    "primary": "Primary",
+    "library": "Library"
+  },
+  "Theme": {
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme"
+  },
+  "Locale": {
+    "switchTo": "Switch language to Arabic"
+  },
+  "Home": {
+    "kicker": "Personal research library",
+    "title": "Research, written slowly.",
+    "lede": "A small, bilingual library of long-form notes and studies.",
+    "latest": "Latest research",
+    "all": "All research"
+  },
+  "Footer": {
+    "line": "AS Research — a personal library."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "body": "That page does not exist or has moved.",
+    "home": "Back to home"
+  },
+  "Library": {
+    "title": "Library",
+    "description": "All public research, newest first.",
+    "count": "{count, plural, =0 {No entries} one {1 entry} other {# entries}}",
+    "empty": "No research has been published yet.",
+    "draft": "Draft"
+  },
+  "Article": {
+    "readingTime": "{minutes} min read",
+    "backToLibrary": "Back to the library",
+    "untranslatedKicker": "Translation",
+    "untranslatedTitle": "This research is not available in English",
+    "untranslatedBody": "It has only been published in another language.",
+    "openIn": "Read it in {language}"
+  }
+}
