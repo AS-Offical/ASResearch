@@ -1,9 +1,9 @@
 import { Link } from "@/i18n/navigation";
 
-type Props = { href: string; id: string; title: string; category: string; date: string };
+type Props = { href: string; id: string; title: string; category: string; date: string; draft?: string };
 
 /** One row of the library index: id, title, category, date. Not a card. */
-export function IndexRow({ href, id, title, category, date }: Props) {
+export function IndexRow({ href, id, title, category, date, draft }: Props) {
   return (
     <li className="index__row">
       <Link href={href} className="index__link">
@@ -11,6 +11,7 @@ export function IndexRow({ href, id, title, category, date }: Props) {
         <span className="index__title">{title}</span>
         <span className="index__meta">
           <span>{category}</span>
+          {draft ? <span className="badge">{draft}</span> : null}
           <time>{date}</time>
         </span>
       </Link>

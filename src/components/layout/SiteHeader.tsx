@@ -12,10 +12,11 @@ export function SiteHeader() {
         <Link href="/" className="site-header__brand" aria-label={t("Nav.home")}>
           <Logo name="as-researches" />
         </Link>
-        <div className="site-header__tools" role="group" aria-label={t("Nav.primary")}>
+        <nav className="site-header__tools" aria-label={t("Nav.primary")}>
+          <Link href="/library" className="site-header__link">{t("Nav.library")}</Link>
           <LocaleSwitcher label={t("Locale.switchTo")} />
           <ThemeToggle toLight={t("Theme.toLight")} toDark={t("Theme.toDark")} />
-        </div>
+        </nav>
       </div>
     </header>
   );

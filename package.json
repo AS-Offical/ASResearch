@@ -12,10 +12,14 @@
     "assets:build": "python3 -I scripts/assets/build-assets.py"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "^16.4.3",
     "next-intl": "^4.14.9",
+    "next-mdx-remote": "^6.0.0",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "remark-gfm": "^4.0.1",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
