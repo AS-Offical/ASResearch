@@ -1,0 +1,83 @@
+---
+id: "001"
+title: "Passkeys, explained: signing in without a shared secret"
+summary: "A practical look at how passkeys use public-key cryptography, why they resist phishing, and what account owners still need to plan for."
+category: "Technology"
+date: "2026-10-30"
+draft: false
+---
+
+Passwords work because a person and a service share a secret. That creates a persistent liability: the secret can be guessed, reused, copied from a breach, or typed into a convincing fake sign-in page. Passkeys change the shape of that problem. Instead of sending a reusable secret to a website, a device proves that it holds a private cryptographic key.
+
+This is a short, source-led explanation of the technology behind passkeys, the security properties they offer, and the recovery questions that remain.
+
+## The short version
+
+A passkey is a credential based on a public and private key pair. During setup, the account service stores the public key. The private key stays with an authenticator, such as a phone, computer, security key, or a credential manager that can securely synchronize credentials across a person’s devices.
+
+To sign in, the service sends a fresh challenge. The authenticator asks the person to unlock or approve it, then signs the challenge with the private key. The service checks that signature using the public key. There is no password to type or shared secret for the website to store.
+
+The Web Authentication standard (WebAuthn) defines the browser-to-service part of this exchange. FIDO2 combines WebAuthn with the Client to Authenticator Protocol (CTAP), which lets a browser communicate with an authenticator. In everyday use, the term “passkey” usually describes a passwordless FIDO credential designed to be easier to use across devices.
+
+## What happens during setup
+
+When someone chooses “create a passkey,” the service starts a registration ceremony. It supplies the browser with a challenge and information about the account and the service’s relying-party identity. The browser asks an authenticator to create a credential for that identity.
+
+The authenticator creates a key pair. It returns the public key and a credential identifier to the service, along with an attestation response whose details depend on the authenticator and the service’s configuration. The service stores the public key. The private key is not sent to the service as part of the WebAuthn registration response.
+
+The authenticator may require local user verification, such as a device PIN or biometric check. A fingerprint or face scan is used by the device to unlock or approve the operation; the website receives the signed response, not the biometric sample.
+
+## What happens during sign-in
+
+Sign-in is a challenge-response exchange:
+
+1. The service creates a fresh, unpredictable challenge and sends it to the browser.
+2. The browser requests a matching credential from an authenticator for the current service.
+3. The authenticator verifies the person locally when required, then signs data that includes the challenge and information about the relying party and browser origin.
+4. The browser returns the signed assertion to the service.
+5. The service verifies the signature with the stored public key and checks that the challenge, origin, and relying-party identity match the sign-in it initiated.
+
+The challenge is fresh for each attempt, so a captured response should not be useful for a later login. A service can also track authenticator counters and other signals, though those details vary and should not be treated as a substitute for signature and origin checks.
+
+## Why passkeys help against phishing
+
+A password can be entered into any page that asks for it. A WebAuthn credential is scoped to a relying party, and the browser includes origin information in the signed response. A passkey created for `example.com` should not produce a valid assertion for a lookalike domain such as `examp1e.com`.
+
+This binding makes passkeys resistant to common credential-harvesting pages. It also removes password reuse from the login flow: there is no password to copy from one site to another. These protections depend on the service correctly validating the WebAuthn response and maintaining a secure account-recovery process.
+
+## One device or many?
+
+Some credentials are tied to one physical authenticator. Others are synchronized by a platform credential manager so that a person can use them on more than one device. A person can also use a phone to approve sign-in on a nearby computer, when the browser and devices support a cross-device flow.
+
+Synchronization makes passkeys convenient and can help with device loss, but it means the account owner relies on the credential manager’s backup and recovery design. The exact behavior depends on the operating system, credential provider, account settings, and the service. “Passkey” describes the authentication credential; it does not imply that every passkey is stored or recovered in the same way.
+
+## What passkeys do not solve
+
+Passkeys protect the sign-in ceremony, not every part of an account. A weak recovery path can still let an attacker take over an account. A compromised device may allow an attacker to act as the signed-in person. Malware, social engineering, insecure sessions, and authorization bugs are separate risks.
+
+Services should offer a clear way to add another authenticator and recover access, while avoiding recovery methods that quietly reduce security to a guessable password or easily hijacked email account. People should review which devices and credentials are registered, keep their device and credential-manager accounts protected, and understand how recovery works before they need it.
+
+Passkeys also do not guarantee anonymity. A service still learns which account is signing in and can associate activity with it. WebAuthn is an authentication mechanism, not a privacy layer for the rest of a service.
+
+## A practical checklist
+
+- Add a passkey from the service’s genuine website or app, after checking the domain.
+- Keep your phone, computer, security key, and credential-manager account protected with a strong device unlock method.
+- Add a backup sign-in method or another authenticator where the service supports it.
+- Review registered devices and remove credentials you no longer use.
+- Check how the service handles recovery, device replacement, and account support.
+- Treat unexpected requests to approve a sign-in with the same care as any other account-security prompt.
+
+## Takeaway
+
+Passkeys replace a shared, reusable password with a public-key proof tied to a service. That design removes several common ways passwords fail, especially reuse and phishing, while keeping biometric checks on the local device. The remaining work is operational: services and people still need sound recovery, device security, and account management.
+
+### Sources
+
+- [W3C, Web Authentication: An API for accessing Public Key Credentials, Level 3](https://www.w3.org/TR/webauthn-3/)
+- [FIDO Alliance, Passkeys](https://fidoalliance.org/passkeys/)
+- [Google Identity, Passkeys](https://developers.google.com/identity/passkeys)
+- [Apple Developer, Supporting passkeys](https://developer.apple.com/documentation/authenticationservices/supporting-passkeys)
+- [Microsoft Learn, Passkeys (FIDO2) authentication](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passkeys-fido2)
+
+This overview is educational and is not a configuration guide for a particular website or identity provider.
