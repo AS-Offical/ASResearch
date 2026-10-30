@@ -47,5 +47,20 @@
     "untranslatedTitle": "هذا البحث غير متاح بالعربية",
     "untranslatedBody": "نُشر هذا البحث بلغة أخرى فقط.",
     "openIn": "اقرأه بـ{language}"
+  },
+  "Private": {
+    "kicker": "خاص",
+    "vaultTitle": "الخزنة",
+    "vaultLead": "أدخل رمز الوصول لفتح بحث خاص.",
+    "codeLabel": "رمز الوصول",
+    "submit": "فتح",
+    "invalid": "هذا الرمز غير صحيح.",
+    "limitedTitle": "من فضلك انتظر قليلاً",
+    "limitedBody": "محاولات كثيرة. حاول مجدداً بعد دقائق.",
+    "unavailableTitle": "هذا الرابط غير متاح",
+    "unavailableBody": "قد يكون منتهياً أو مسحوباً أو غير موجود.",
+    "privateBadge": "خاص",
+    "bundleTitle": "لا يمكن عرض هذا البحث بعد",
+    "bundleBody": "الأبحاث التفاعلية غير مفعّلة في الموقع بعد."
   }
 }
