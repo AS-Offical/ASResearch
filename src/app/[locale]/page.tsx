@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import { getEntries } from "@/lib/research";
 import { alternates } from "@/lib/seo";
 import { EntryList } from "@/components/ui/EntryList";
+import { VaultForm } from "@/app/(private)/vault/VaultForm";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
